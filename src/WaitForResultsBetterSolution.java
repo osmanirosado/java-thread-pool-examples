@@ -15,6 +15,8 @@ public class WaitForResultsBetterSolution {
             cs.submit(new UpperCaseTask(c));
         }
 
+        pool.shutdown();
+
         for (int i = alphabet.length; i > 0; i--) {
             try {
                 Character result = cs.take().get();
@@ -23,7 +25,5 @@ public class WaitForResultsBetterSolution {
                 e.printStackTrace();
             }
         }
-
-        pool.shutdown();
     }
 }
