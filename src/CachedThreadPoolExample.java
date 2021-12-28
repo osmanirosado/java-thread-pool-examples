@@ -9,7 +9,7 @@ public class CachedThreadPoolExample {
         ExecutorService pool = Executors.newCachedThreadPool();
 
         for (char c : alphabet) {
-            pool.execute(new Task(c));
+            pool.execute(new PrintTask(c));
         }
 
         pool.shutdown();

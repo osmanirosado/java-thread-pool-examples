@@ -1,8 +1,8 @@
-class Task implements Runnable {
+class PrintTask implements Runnable {
 
     private final char taskName;
 
-    public Task(char taskName) {
+    public PrintTask(char taskName) {
         this.taskName = taskName;
     }
 

@@ -1,9 +1,9 @@
 import java.util.concurrent.Callable;
 
-public class CallableTask implements Callable<Character> {
+public class UpperCaseTask implements Callable<Character> {
     private final char taskName;
 
-    public CallableTask(char taskName) {
+    public UpperCaseTask(char taskName) {
         this.taskName = taskName;
     }
 

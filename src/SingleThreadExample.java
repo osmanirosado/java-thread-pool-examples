@@ -9,7 +9,7 @@ public class SingleThreadExample {
         ExecutorService pool = Executors.newSingleThreadExecutor();
 
         for (char c : alphabet) {
-            pool.execute(new Task(c));
+            pool.execute(new PrintTask(c));
         }
 
         pool.shutdown();

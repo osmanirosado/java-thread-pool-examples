@@ -16,7 +16,7 @@ public class WaitForResultsExample {
         ExecutorService pool = Executors.newFixedThreadPool(numThreads);
 
         for (char c : alphabet) {
-            results.add(pool.submit(new CallableTask(c)));
+            results.add(pool.submit(new UpperCaseTask(c)));
         }
 
         for (Future<Character> result : results) {

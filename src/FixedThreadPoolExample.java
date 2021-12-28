@@ -12,7 +12,7 @@ public class FixedThreadPoolExample {
                 Executors.newFixedThreadPool(numThreads);
 
         for (char c : alphabet) {
-            pool.execute(new Task(c));
+            pool.execute(new PrintTask(c));
         }
 
         pool.shutdown();
