@@ -10,23 +10,22 @@ public class WaitForResultsExample {
     private static final char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
     public static void main(String[] args) {
-        int numThreads = 4;
+        ExecutorService pool = Executors.newFixedThreadPool(4);
         ArrayList<Future<Character>> results = new ArrayList<>(alphabet.length);
 
-        ExecutorService pool = Executors.newFixedThreadPool(numThreads);
-
         for (char c : alphabet) {
-            results.add(pool.submit(new UpperCaseTask(c)));
-        }
-
-        for (Future<Character> result : results) {
-            try {
-                System.out.println(result.get());
-            } catch (InterruptedException | ExecutionException e) {
-                e.printStackTrace();
-            }
+            Future<Character> future = pool.submit(new UpperCaseTask(c));
+            results.add(future);
         }
 
         pool.shutdown();
+
+        for (Future<Character> result : results) {
+            try {
+                Character c = result.get();
+                System.out.println(c);
+            } catch (InterruptedException | ExecutionException ignored) {
+            }
+        }
     }
 }

@@ -6,8 +6,7 @@ public class ThreadExample {
         worker.start();
         try {
             worker.join();
-        } catch (InterruptedException ie) {
-            ie.printStackTrace();
+        } catch (InterruptedException ignored) {
         }
     }
 }
