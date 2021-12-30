@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,11 +12,11 @@ public class WaitForResultsExample {
 
     public static void main(String[] args) {
         ExecutorService pool = Executors.newFixedThreadPool(4);
-        ArrayList<Future<Character>> results = new ArrayList<>(alphabet.length);
+        List<Future<Character>> results = new ArrayList<>(alphabet.length);
 
         for (char c : alphabet) {
-            Future<Character> future = pool.submit(new UpperCaseTask(c));
-            results.add(future);
+            Future<Character> result = pool.submit(new UpperCaseTask(c));
+            results.add(result);
         }
 
         pool.shutdown();

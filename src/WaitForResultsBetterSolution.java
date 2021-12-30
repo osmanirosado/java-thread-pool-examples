@@ -11,7 +11,8 @@ public class WaitForResultsBetterSolution {
 
     public static void main(String[] args) {
         ExecutorService pool = Executors.newFixedThreadPool(4);
-        CompletionService<Character> cs = new ExecutorCompletionService<>(pool);
+        CompletionService<Character> cs =
+                new ExecutorCompletionService<>(pool);
 
         for (char c : alphabet) {
             cs.submit(new UpperCaseTask(c));
